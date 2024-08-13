@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid mb-5">
+    <div class="row mt-5">
+        <div class="col-md-6 my-3">
+          <img src="{{user.profile}}" width="400" height="400">
+        </div>
+        <div class="col-md-6">
+            <h5 class="bg-primary text-light p-2 text-center">Buyer Profile</h5>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{user.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Username</th>
+                        <td>{{user.username}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{user.email}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Pass</th>
+                        <td>{{user.pass}}</td>
+                    </tr>
+                     <tr>
+                        <th>Role</th>
+                        <td>{{user.role}}</td>
+                    </tr>
+                 
+                    <tr>
+                    
+                        <td colspan="3">
+                            <a class="btn btn-primary w-100  text-light" [routerLink]="['/buyer/updateprofile']" [queryParams]="{id:user.id}">Update Profile</a>
+                        </td>
+                     
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-fotter></app-fotter>

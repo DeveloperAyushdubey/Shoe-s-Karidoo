@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3 mb-5">
+    <div class="row">
+        <div class="col-md-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Product <a routerLink="/admin/product/create" class="float-right" > <i class="fa fa-plus  text-light float-right "></i></a></h5>
+
+         <div class="mt-5 table-responsive ">
+            <table class="table  table-bordered">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Color</th>
+                    <th>Quntity</th>
+                    <th>Maincategory</th>
+                    <th>Subcategory</th>
+                    <th>Brand</th>
+                    <th>Stock</th>
+                    <th>pic1</th>
+                    <th>pic2</th>
+                    <th>pic3</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let i of item">
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.size}}</td>
+                    <td>{{i.color}}</td>
+                    <td>{{i.quntity}}</td>
+                    <td>{{i.maincategory}}</td>
+                    <td>{{i.subcategory}}</td>
+                    <td>{{i.brand}}</td>
+                    <td>{{i.stock}}</td>
+                    <td>
+                       
+                            <img src="{{i.pic1}}" width="50" height="50">
+                       
+                    </td>
+                    <td>
+                        <a href="{{i.pic2}}">
+                            <img src="{{i.pic2}}" width="50" height="50">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{i.pic3}}">
+                            <img src="{{i.pic3}}" width="50" height="50">
+                        </a>
+                    </td>
+                    <td>
+                       <a [routerLink]="['/admin/product/update']" [queryParams]="{id:i.id}" ><i class="fa fa-edit"></i> </a>
+                     </td>
+                 <td>
+                    <button class="text-danger btn btn-sm"  (click)="deletedata(i.id)"><i class="fa fa-trash"></i></button>
+                 </td>
+                </tr>
+                </tbody>
+            </table>
+         </div>
+        </div>
+    </div>
+</div>
+<app-fotter></app-fotter>

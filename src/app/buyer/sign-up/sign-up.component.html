@@ -1,0 +1,119 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid mb-5">
+
+    <div class="row">
+        <div class="col-md-3 "></div>
+        <div class="col-md-6 mt-5 cart bg-light p-5 cart-body">
+            <h5 class="text-center bg-primary p-2 text-light cart-header mb-3">Create An Account</h5>
+            <form [formGroup]="myform" (submit)="postdata()">
+               <div class="row mb-3">
+            
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="Enter the Name" class="form-control" formControlName="name">
+                        <p *ngIf="name.invalid && name.touched" class="text-danger">Name is Requird</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label>UserName</label>
+                        <input type="text" name="userName" placeholder="Enter the UserName" class="form-control" formControlName="username">
+                        <p *ngIf="username.invalid && username.touched" class="text-danger">UserName is Requird</p>
+                        <p *ngIf="usernameerrer.length" class="text-danger">{{usernameerrer}}</p>
+
+                    </div>
+                </div>
+
+               </div>
+               <div class="row mb-3">
+            
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="Enter the Email" class="form-control" formControlName="email">
+                        <p *ngIf="email.invalid && email.touched" class="text-danger">Email is Requird</p>
+                        <p *ngIf="emailerrer.length" class="text-danger">{{emailerrer}}</p>
+
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label>Mobile</label>
+                        <input type="text" name="name" placeholder="Enter the Mobile" class="form-control" formControlName="mobile">
+                        <p *ngIf="mobile.invalid && mobile.touched  && mobile.hasError('required')" class="text-danger" >mobile number is Requird</p>
+                        <p *ngIf="mobile.invalid && mobile.touched  && mobile.hasError('minlenght')" class="text-danger" >mobile is minLenght</p>
+                        <p *ngIf="mobile.invalid && mobile.touched  && mobile.hasError('maxLenght')" class="text-danger" >mobile is maxLenght</p>
+                     
+                    </div>
+                </div>
+
+               </div>
+               <div class="row mb-3">
+            
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label>pass</label>
+                        <input type="password" name="pass" placeholder="Enter the Pass" class="form-control" formControlName="pass">
+                        <p *ngIf="pass.invalid && pass.touched  && pass.hasError('required')" class="text-danger" >password is requird</p>
+                        <p *ngIf="pass.invalid && pass.touched  && pass.hasError('minLenght')" class="text-danger" >password is minLenght 5 </p>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label>ConPass</label>
+                        <input type="password" name="pass" placeholder="Enter the ConPass" class="form-control" formControlName="conpass">
+                        <p *ngIf="pass.invalid && pass.touched  && pass.hasError('required')" class="text-danger" >Conpassword is requird</p>
+                        <p *ngIf="pass.invalid && pass.touched  && pass.hasError('minLenght')" class="text-danger" >Conpassword is minLenght 5 </p>
+                    <p *ngIf="passerrer.length" class="text-danger">{{passerrer}}</p>
+                    </div>
+                </div>
+
+               </div>
+               <div class="row mb-3">
+            
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label>Address</label>
+                        <input type="text" name="Address" placeholder="Enter the Address" class="form-control" formControlName="addressh">
+                        <p *ngIf="addressh.invalid && addressh.touched  && pass.hasError('required')" class="text-danger" >Address is requird</p>
+                        <p *ngIf="addressh.invalid && addressh.touched  && pass.hasError('minLenght')" class="text-danger" >Address is minLenght 5 </p>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label>Profile</label>
+                        <input type="file" name="pass"(change)="getInputFile1($event)"   class="form-control" >
+                        <p *ngIf="profile.invalid && profile.touched" class="text-danger" >Profile is requird</p>
+                      
+                
+                    </div>
+                </div>
+
+               </div>
+               <div class="row mt-2">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary w-100" [disabled]="myform.invalid">Submit</button>
+                </div>
+               
+               </div>
+              <div class="row">
+                <div class="col-md-6">
+                  
+                   <a routerLink="/buyer/login">Have a Account</a>
+
+                </div>
+                <div class="col-md-6 text-right">
+                   <a routerLink="/admin/signup" class="float-right">Create A vender Account </a>
+                </div>
+              </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+<app-fotter></app-fotter>

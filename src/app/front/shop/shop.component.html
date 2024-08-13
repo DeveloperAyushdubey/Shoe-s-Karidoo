@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div id="carouselExampleCaptions" class="carousel slide">
+      
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../../../assets/img/pexels-adrian-dorobantu-989175-2300334.jpg" class="d-block w-100" alt="..." width="300" height="300">
+            <div class="carousel-caption d-none d-md-block p-5">
+              <h1 class="text-light mt-5">Shop Now</h1>
+              <p></p>
+            </div>
+          </div>
+         
+      
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 mt-5">
+            <div>
+                <div class="list-group mb-3">
+                    <a type="button" [routerLink]="['/shop']" [queryParams]="{mc:'',sc:sc,br:br,cl:cl}" class="list-group-item list-group-item-action active text-center"   aria-current="true">
+                   Maincategory
+                    </a>
+                    <a type="button" [routerLink]="['/shop']" [queryParams]="{mc:item.name,sc:sc,br:br,cl:cl }"  class="list-group-item list-group-item-action text-center bg-light" *ngFor="let item of Maincategory"   >{{item.name}}</a>
+                  
+                  </div>
+                  <div class="list-group mb-3">
+                    <button type="button"  [routerLink]="['/shop']" [queryParams]="{mc:mc,sc:'',br:br,cl:cl}"  class="list-group-item list-group-item-action active text-center" aria-current="true">
+                   Subcategory
+                    </button>
+                    <button type="button" [routerLink]="['/shop']" [queryParams]="{mc:mc,sc:item.name,br:br,cl:cl }" class="list-group-item list-group-item-action text-center bg-light" *ngFor="let item of Subcategory">{{item.name}}</button>
+                  
+                  </div>
+                  <div class="list-group mb-3">
+                    <button type="button"  [routerLink]="['/shop']" [queryParams]="{mc:mc,sc:sc,br:'',cl:cl}"    class="list-group-item list-group-item-action active text-center" aria-current="true">
+                   Brand
+                    </button>
+                    <button type="button" [routerLink]="['/shop']" [queryParams]="{mc:mc,sc:sc,br:item.name,cl:cl }"   class="list-group-item list-group-item-action text-center bg-light" *ngFor="let item of Brand"> <img src="{{item.pic}}" width="100" height="50">  </button>
+                  
+                  </div>
+                  <div class="list-group mb-3">
+                    <button type="button" [routerLink]="['/shop']" [queryParams]="{mc:mc,sc:sc,br:br,cl:''}"    class="list-group-item list-group-item-action active text-center" aria-current="true">
+                   Color
+                    </button>
+                    <button type="button"  [routerLink]="['/shop']" [queryParams]="{mc:mc,sc:sc,br:br,cl:item.name }"    class="list-group-item list-group-item-action bg-light text-center" *ngFor="let item of Color" > <img src="{{item.pic}}" width="100" height="50"> </button>
+                  
+                  </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+        
+            <app-homeproduct [Product]="filterproduct" [Maincategory]="null" title=""></app-homeproduct>
+     <!-- <app-homeproduct [Product]="filterproduct"></app-homeproduct> -->
+        </div>
+      </div>
+</div>
+
+
+<app-fotter></app-fotter>

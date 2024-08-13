@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3 mb-5">
+    <div class="row">
+        <div class="col-md-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Create Color <a routerLink="/admin/color" class="float-right" > <i class="fa fa-forward  text-light float-right "></i></a></h5>
+
+        <form [formGroup]="myform" (submit)="postdata()">
+            <div class="row mb-3 mt-3">
+          
+                <div class="col-md-6">
+                    <label>Name</label>
+                    <input type="text" class="form-control" placeholder="Enter the Maincategory Name" formControlName="name">
+                    <p *ngIf="name.touched && name.invalid" class="text-danger">Name is Requird</p>
+                </div>
+                <div class="col-md-6">
+                    <label>File</label>
+                    <input type="file" name="file" (change)="fileupload($event)" class="form-control" >
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Status</label>
+                    <input type="checkbox" formControlName="status">
+                </div>
+            </div>
+            <div class="row ">
+                <button type="submit" [disabled]="myform.invalid" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<app-fotter></app-fotter>

@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid mb-5~">
+    <div class="row mt-5">
+        <h5 class="bg-primary text-center p-2 text-light">Cart Section</h5>
+        <div class="col-md-8 table-responsive mt-4" *ngIf="data.length" >
+            <table class="table  table-bordered">
+              <tr>
+                <th>Name</th>
+                <th>Maincategory</th>
+                 <th>Brand</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Quntity</th>
+                <th>TotalAmount</th>
+                <th>Pic1</th>
+                <th>Pic3</th>
+                <th>Pic3</th>
+                <td>Remove Item</td>
+              </tr>
+              <tr *ngFor="let item of data">
+                <td>{{item.name}}</td>
+                <td>{{item.maincategory}}</td>
+                 <td>{{item.brand}}</td>
+                <td>{{item.color}}</td>
+                <td>{{item.size}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.quntity}}</td>
+                <td>{{item.totalamount}}</td>
+               
+                   <td>
+                    <img src="{{item.pic1}}" width="50" height="50">
+                   </td>
+                   <td>
+                    <img src="{{item.pic2}}" width="50" height="50">
+                   </td>
+                   <td>
+                    <img src="{{item.pic3}}" width="50" height="50">
+                   </td>
+               
+              
+                   <td><button class="btn btn-sm text-center" (click)="deletecart(item.id)"><i class="fa fa-trash text-danger"></i></button></td>
+              </tr>
+
+            </table>
+        </div>
+        <div class="col-md-4 mt-4 table-responsive" *ngIf="data.length">
+            <h5>Proceed to Checkout</h5>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>SubTotal</th>
+                        <td>&#8377; {{subtotal}}</td>
+                    </tr>
+                    <tr>
+                        <th>Shipping Charge</th>
+                        <td> &#8377;{{shiping}}</td>
+                    </tr>
+                    <tr>
+                        <th>TotalAmount</th>
+                        <td>&#8377; {{totalamount}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <a routerLink="/buyer/Checkout" class="btn btn-primary" >Proceed to Checkout</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row text-center" *ngIf="data.length==0" >
+        <h1>No Item in Cart</h1>
+        <a routerLink="/shop" class="btn btn-primary btn-sm">Shop Now</a>
+    </div>
+</div>
+<app-fotter></app-fotter>

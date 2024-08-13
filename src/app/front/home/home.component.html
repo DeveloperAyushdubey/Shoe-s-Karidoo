@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <video autoplay loop width="2000" class="text-center">
+                    <source src="../../../assets/video/8533112-uhd_3840_2160_25fps.mp4">
+                  </video>
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <i class="fa fa-shoe-prints fa-4x text-primary mb-4 d-none d-sm-block"></i>
+                            <h1 class="display-2 text-uppercase text-white mb-md-4">Welcome TO Shoes Karido</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Get A Quote</a>
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+         
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    
+    <!-- About Start -->
+    <div class="container-fluid py-6 px-5">
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <h1 class="display-5 text-uppercase mb-4">We are <span class="text-primary">the Leader</span> in Shoes Industry</h1>
+                <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor</p>
+                <div class="row gx-5 py-2">
+                    <div class="col-sm-6 mb-2">
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Perfect Planning</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Professional Workers</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>First Working Process</p>
+                    </div>
+                    <div class="col-sm-6 mb-2">
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Perfect Planning</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Professional Workers</p>
+                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>First Working Process</p>
+                    </div>
+                </div>
+                <p class="mb-4">Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos labore</p>
+                <img src="../../../assets/Product/pexels-photo-1456706.jpeg" alt="">
+            </div>
+            <div class="col-lg-5 pb-5" style="min-height: 400px;">
+                <div class="position-relative bg-dark-radial h-100 ms-5">
+                    <img class="position-absolute w-100 h-100 mt-5 ms-n5" src="../../../assets/Product/OIP (2).jpg" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+         <!-- Services Start -->
+    <div class="container-fluid bg-light py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-4">We Provide <span class="text-primary">The Best</span> Brand Shoes</h1>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6" *ngFor="let  data of item">
+                <div class="service-item bg-white d-flex flex-column align-items-center text-center">
+                    <img class="img-fluid" src="{{data.pic}}" alt="" width="300" height="300">
+                    <div class="service-icon bg-white">
+                        <i class="fa fa-3x fa-building text-primary"></i>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h4 class="text-uppercase mb-3">{{data.name}}</h4>
+                      
+                        <a class="btn text-primary" href="">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <app-homeproduct *ngFor="let item of maincategory"  [Maincategory]="null" title="All product" [Product]="product"></app-homeproduct>
+
+    
+<app-fotter></app-fotter>

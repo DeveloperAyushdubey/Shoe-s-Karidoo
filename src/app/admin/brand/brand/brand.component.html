@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3 mb-5">
+    <div class="row">
+        <div class="col-md-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Brand <a routerLink="/admin/brand/create" class="float-right" > <i class="fa fa-plus  text-light float-right "></i></a></h5>
+
+         <div class="mt-5 table-responsive ">
+            <table class="table table-bordered">
+             <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+             </tr>
+             <tr *ngFor="let i of item">
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.status}}</td>
+                <td><img src="{{i.pic}}" width="100" height="100"> </td>
+                <td><a [routerLink]="['/admin/brand/update']" [queryParams]="{id:i.id}"><i class="fa fa-edit"></i> </a></td>
+                <td><button (click)="deletedata(i.id)" class="text-danger btn btn-sm"><i class="fa fa-trash"></i></button> </td>
+             </tr>
+            </table>
+         </div>
+        </div>
+    </div>
+</div>
+<app-fotter></app-fotter>

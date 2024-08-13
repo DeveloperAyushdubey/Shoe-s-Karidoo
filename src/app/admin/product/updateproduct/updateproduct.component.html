@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3 mb-5">
+    <div class="row">
+        <div class="col-md-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Create Product <a routerLink="/admin/product" class="float-right" > <i class="fa fa-forward  text-light float-right "></i></a></h5>
+
+        <form [formGroup]="myform" (submit)="postdata()">
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Name</label>
+                    <input type="text" formControlName="name"  placeholder="Enter the name" class="form-control">
+                     <p *ngIf="name.invalid && name.touched" class="text-danger">Name is Required</p> 
+                </div>
+                <div class="col-md-4">
+                  <label>Size</label>
+                  <input type="text" formControlName="size" placeholder="Enter the Size" class="form-control">
+                  <p *ngIf="size.invalid && size.touched" class="text-danger">Size is Required</p>
+
+                </div>
+                <div class="col-md-4">
+                    <label>Color</label>
+              <select  formControlName="color" class="form-select">
+                <option *ngFor="let item of Color">{{item.name}}</option>
+              </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Maincategory</label>
+                    <select  formControlName="maincategory" class="form-select">
+                      <option *ngFor="let item of Maincategory">{{item.name}}</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label>Subcategory</label>
+                    <select  formControlName="subcategory" class="form-select">
+                      <option *ngFor="let item of Subcategory">{{item.name}}</option>
+                    </select>
+
+                </div>
+                <div class="col-md-4">
+                    <label>Brand</label>
+              <select  class="form-select" formControlName="brand">
+                <option *ngFor="let item of Brand">{{item.name}}</option>
+              </select>
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Price</label>
+                    <input type="text" formControlName="price"  placeholder="Enter the name" class="form-control">
+                 <p *ngIf="price.invalid && price.touched" class="text-danger">price is Required</p> 
+                </div>
+                <div class="col-md-4">
+                  <label>Stock</label>
+               
+                <select  formControlName="stock" class="form-select">
+                    <option value="InStock">InStock</option>
+                    <option value="OutStock">OutStock</option>
+                </select>
+
+                </div>
+                <div class="col-md-4">
+                    <label>Quntity</label>
+                    <input type="text" class="form-control" formControlName="quntity">
+                     <p *ngIf="quntity.touched && quntity.invalid" class="text-danger">Quntity is Required</p>
+                 <p *ngIf="quntity.touched && quntity.invalid && quntity.hasError('minlenght')" class="text-danger">Quntity is min 1</p>
+                    <p *ngIf="quntity.touched && quntity.invalid && quntity.hasError('maxlenght')" class="text-danger">Quntity is max 100</p>  
+
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Pic1</label>
+                    <input type="file" class="form-control" (change)="getInputFile1($event)" >
+
+                </div>
+                <div class="col-md-4">
+                    <label>Pic2</label>
+                    <input type="file" class="form-control" (change)="getInputFile2($event)">
+                    
+                </div>
+                <div class="col-md-4">
+                    <label>Pic3</label>
+                    <input type="file" class="form-control"  (change)="getInputFile3($event)">
+
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label>Description</label>
+                    <textarea formControlName="description" cols="5" rows="5" class="form-control" ></textarea>
+                    <p *ngIf="description.touched && description.invalid && description.hasError('required')" class="text-danger"> Description is  Required</p>
+                    <p *ngIf="description.touched && description.invalid && description.hasError('minLength')" class="text-danger"> Description in minLength 5</p>
+                    <p *ngIf="description.touched && description.invalid && description.hasError('maxLength')" class="text-danger"> Description in maxLength 200</p>
+                </div>
+            </div>
+
+            
+            <div class="row ">
+                <button type="submit" class="btn btn-primary" [disabled]="myform.invalid" >Submit</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<app-fotter></app-fotter>

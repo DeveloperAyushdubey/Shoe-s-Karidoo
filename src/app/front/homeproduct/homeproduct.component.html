@@ -1,0 +1,29 @@
+
+    <div class="container-fluid bg-light py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-4">Latesh Shoe 's <span class="text-primary">{{title}}</span> </h1>
+        </div>
+      
+        <div class="row g-5 portfolio-container" *ngIf="finaldata.length">
+            <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first" *ngFor="let item of finaldata">
+                <div class="position-relative portfolio-box w-100 h-100">
+                    <img class="img-fluid w-100" src="{{item.pic1}}" alt="" width="300" height="300">
+                    <a class="portfolio-title shadow-sm"  [routerLink]="['/singleproduct']"  [queryParams]="{id:item.id}">
+                     <p class="h4 text-uppercase">{{item.name}}</p>
+                         <span class="text-body"><i class="text-primary me-2"></i>&#8377; {{item.price}}</span> 
+                        <h5 class="text-center mt-2 text-danger">Add to Cart</h5>
+                     </a>
+                     <a class="portfolio-btn" data-lightbox="portfolio">
+                        <i class="bi bi-plus text-white"></i>
+                       
+                    </a> 
+              </div> 
+         </div>
+          
+     </div> 
+
+     <div *ngIf="finaldata.length==0">
+        <h1 class="text-center">Product is not  found</h1>
+     </div>
+    </div>
+    <!-- Portfolio End -->

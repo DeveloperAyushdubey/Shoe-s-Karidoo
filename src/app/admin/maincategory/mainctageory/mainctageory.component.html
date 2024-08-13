@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3 mb-5">
+    <div class="row">
+        <div class="col-md-3">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-9">
+            <h5 class="bg-primary text-light text-center p-2">Maincategory <a routerLink="/admin/maincategory/create" class="float-right" > <i class="fa fa-plus  text-light float-right "></i></a></h5>
+
+         <div class="mt-5 table-responsive ">
+            <table class="table  table-bordered">
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let i of item">
+                    <th>{{i.id}}</th>
+                    <th>{{i.name}}</th>
+                    <th>{{i.status}}</th>
+                    <th><a [routerLink]="['/admin/maincategory/update']" [queryParams]="{id:i.id}"><i class="fa fa-edit"></i> </a></th>
+                    <th><button (click)="deletedata(i.id)" class="text-danger btn btn-sm"><i class="fa fa-trash text-danger border-0"></i></button></th>
+                </tr>
+            </table>
+         </div>
+        </div>
+    </div>
+</div>
+<app-fotter></app-fotter>

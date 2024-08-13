@@ -1,0 +1,127 @@
+<app-navbar></app-navbar>
+
+
+<div class="container-fluid mb-5">
+    <div class="row mt-5" *ngIf="data.length">
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{user.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Username</th>
+                        <td>{{user.username}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{user.email}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Pass</th>
+                        <td>{{user.pass}}</td>
+                    </tr>
+                     <tr>
+                        <th>Role</th>
+                        <td>{{user.role}}</td>
+                    </tr>
+                 
+                    <tr>
+                    
+                        <td colspan="3">
+                            <a class="btn btn-primary w-100  text-light" [routerLink]="['/buyer/updateprofile']" [queryParams]="{id:user.id}">Update Profile</a>
+                        </td>
+                     
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <tr>
+                          <th>Name</th>
+                          <th>Maincategory</th>
+                           <th>Brand</th>
+                          <th>Color</th>
+                          <th>Size</th>
+                          <th>Price</th>
+                          <th>Quntity</th>
+                          <th>TotalAmount</th>
+                          <th>Pic1</th>
+                          <th>Pic3</th>
+                          <th>Pic3</th>
+                        </tr>
+                        <tr *ngFor="let item of data">
+                          <td>{{item.name}}</td>
+                          <td>{{item.maincategory}}</td>
+                           <td>{{item.brand}}</td>
+                          <td>{{item.color}}</td>
+                          <td>{{item.size}}</td>
+                          <td>{{item.price}}</td>
+                          <td>{{item.quntity}}</td>
+                          <td>{{item.totalamount}}</td>
+                         
+                             <td>
+                              <img src="{{item.pic1}}" width="50" height="50">
+                             </td>
+                             <td>
+                              <img src="{{item.pic2}}" width="50" height="50">
+                             </td>
+                             <td>
+                              <img src="{{item.pic3}}" width="50" height="50">
+                             </td>
+                         
+                        
+                        </tr>
+          
+                      </table>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>SubTotal</th>
+                                <td>&#8377; {{subtotal}}</td>
+                            </tr>
+                            <tr>
+                                <th>Shipping Charge</th>
+                                <td> &#8377;{{shiping}}</td>
+                            </tr>
+                            <tr>
+                                <th>TotalAmount</th>
+                                <td>&#8377; {{totalamount}}</td>
+                            </tr>
+                            <tr>
+                                <th>Payment Mode</th>
+                                <td> 
+                                    <select name="mode" (change)="modeevent($event)" class="form-select">
+                                        <option value="COD">COD</option>
+                                        <option value="Paytem">Paytem</option>
+                                        <option value="Phone Pe">Phone Pe</option>
+                                        <option value="G Pe">G Pe</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <a routerLink="/buyer/chechout" class="btn btn-primary" (click)="placeorder()" >Place Order</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5" *ngIf="data.length==0">
+        <h1 class="text-center bg-primary text-light">Shop Now</h1>
+        <a routerLink="/shop" class="text-center btn btn-primary">Shop Now</a>
+    </div>
+</div>
+
+<app-fotter></app-fotter>

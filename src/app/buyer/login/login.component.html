@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid mb-5">
+
+    <div class="row">
+        <div class="col-md-3 "></div>
+        <div class="col-md-6 mt-5 cart bg-light p-5 cart-body">
+            <h5 class="text-center bg-primary p-2 text-light cart-header mb-3">Login Account</h5>
+            <form [formGroup]="myform" (submit)="postdata()">
+               <div class="row mb-3">
+            
+             
+                <div class="col-md-12">
+                    <div class="form-group ">
+                        <label>UserName</label>
+                        <input type="text" placeholder="Enter the UserName" name="name" class="form-control" formControlName="username">
+                        <p *ngIf="username.invalid && username.touched" class="text-danger">UserName is Requird</p>
+                        <p *ngIf="usernameerrer.length" class="text-danger">{{usernameerrer}}</p>
+
+                    </div>
+                </div>
+
+               </div>
+               <div class="row mb-3">
+                    <div class="col-md-12">
+                       <div class="form-group ">
+                           <label>pass</label>
+                           <input type="password" name="pass" placeholder="Enter the Pass" class="form-control" formControlName="pass">
+                           <p *ngIf="pass.invalid && pass.touched  && pass.hasError('required')" class="text-danger" >password is requird</p>
+                           <p *ngIf="pass.invalid && pass.touched  && pass.hasError('minLenght')" class="text-danger" >password is minLenght 5 </p>
+                          <p *ngIf="passerrer.length" class="text-danger">{{passerrer}}</p>
+                       </div>
+                   </div>
+               </div>
+               <div class="row mb-3">
+                <div class="col-md-12">
+                   <div class="form-group ">
+                       <label>Role</label>
+                     <select name="role" class="form-select" formControlName="role">
+                     
+                        <option value="Buyer">Buyer</option>
+                        <option value="Admin">Admin</option>
+                     </select>
+                   </div>
+               </div>
+           </div>
+           
+               <div class="row mt-2">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary w-100" [disabled]="myform.invalid">Submit</button>
+                </div>
+                <a class="text-dark text-danger" routerLink="/buyer/signup">Create A Account</a>
+               </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+<app-fotter></app-fotter>
